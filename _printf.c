@@ -1,38 +1,30 @@
 #include "main.h"
-#include <stdio.h>
-#include <stddef.h>
 
 /**
- * _printf - produces output according to a format
+ * _printf - Produces output according to a format.
+ * @format: Pointer to a string.
  *
- * @format: a character string
- * Return: integer
+ * Return: The number of characters printed (excluding
+ *         the null byte used to end output to strings)
  */
-
 int _printf(const char *format, ...)
 {
-	int i = 0, num_ch = 0, (*func)(va_list);
-	va_list args;
+        printer p[] = {
+                {"c", print_char},
+                {"s", print_string},
+                {"%", print_percent},
+                {NULL, NULL}
+        };
+        va_list arg;
 
-	va_start(args, format);
-	for (i = 0; format[i] != '\0'; i++)
-	{
-		if (format[i] != '%')
-		{
-			_putchar(format[i]);
-			num_ch++;
-		}
-		else
-		{
-			func = _select_func(format[i + 1]);
-			if (func != NULL)
-			{
-				i++;
-				func(args);
-				num_ch++;
-			}
-		}
-	}
-	va_end(args);
-	return (num_ch);
+        va_start(arg, format);
+
+        if (format == NULL)
+                return (-1);
+
+        parser(format, p, arg);
+
+        va_end(arg);
+
+        return (0);
 }

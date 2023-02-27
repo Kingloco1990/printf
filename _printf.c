@@ -9,22 +9,22 @@
  */
 int _printf(const char *format, ...)
 {
-        printer p[] = {
-                {"c", print_char},
-                {"s", print_string},
-                {"%", print_percent},
-                {NULL, NULL}
-        };
-        va_list arg;
+	printer p[] = {
+		{"c", print_char},
+		{"s", print_string},
+		{"%", print_percent},
+		{NULL, NULL}
+	};
+	va_list arg;
 
-        va_start(arg, format);
+	va_start(arg, format);
 
-        if (format == NULL)
-                return (-1);
+	if (format == NULL)
+		return (-1);
 
-        parser(format, p, arg);
+	parser(format, p, arg);
 
-        va_end(arg);
+	va_end(arg);
 
-        return (0);
+	return (0);
 }

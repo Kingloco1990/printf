@@ -11,30 +11,29 @@
  */
 void parser(const char *format, printer p[], va_list arg)
 {
-        int i, j;
+	int i, j;
 
-        /* Iterates through the main str*/
-        for (i = 0; format[i] != '\0'; i++)
-        {
-                /*Checks for format specifiers*/
-                if (format[i] == '%')
-                {
-                        /*Iterates through struct to find the right func*/
-                        for (j = 0; p[j].symbol != NULL; j++)
-                        {
-                                if (format[i + 1] == p[j].symbol[0])
-                                {
-                                        p[j].func(arg);
-                                        break;
-                                }
-                        }
-                }
-                else
-                {
-                        /*call the _putchar function to print the first byte
-                         of the format string*/
-                        write(1, &format[i], 1);
-                }
-        }
-
+	/* Iterates through the main str*/
+	for (i = 0; format[i] != '\0'; i++)
+	{
+		/* Checks for format specifiers */
+		if (format[i] == '%')
+		{
+			/* Iterates through struct to find the right func */
+			for (j = 0; p[j].symbol != NULL; j++)
+			{
+				if (format[i + 1] == p[j].symbol[0])
+				{
+					p[j].func(arg);
+					break;
+				}
+			}
+		}
+		else
+		{
+			/* call the _putchar function to print the first byte */
+			/* of the format string */
+			write(1, &format[i], 1);
+		}
+	}
 }

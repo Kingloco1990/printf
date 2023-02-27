@@ -6,14 +6,14 @@
 #include <unistd.h>
 
 /**
- * struct Printer - defines a structure for symbols and functions
+ * struct Printer - defines a structure for symbols and functions.
  * @symbol: The character to look up.
  * @func: The associated function.
  */
 typedef struct Printer
 {
-        char *symbol;
-        int (*func)(va_list);
+	char *symbol;
+	int (*func)(va_list);
 } printer;
 
 int _printf(const char *format, ...);

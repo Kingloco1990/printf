@@ -33,7 +33,7 @@ void parser(const char *format, printer p[], va_list arg)
                 {
                         /*call the _putchar function to print the first byte
                          of the format string*/
-                        _putchar(format[i]);
+                        write(1, &format[i], 1);
                 }
         }
 

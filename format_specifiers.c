@@ -6,9 +6,11 @@
  *
  * Return: The number of characters printed.
  */
-void print_char(va_list arg)
+int print_char(va_list arg)
 {
-        _putchar(va_arg(arg, int));
+	char c = va_arg(arg, int);
+
+	return (write(1, &c, 1));
 }
 
 /**
@@ -17,22 +19,23 @@ void print_char(va_list arg)
  *
  * Return: The number of characters printed.
  */
-void print_string(va_list arg)
+int print_string(va_list arg)
 {
-        int i = 0;
-        char *str;
+	int i = 0;
+	char *str;
 
-        str = va_arg(arg, char *);
+	str = va_arg(arg, char *);
 
-        if (str == NULL)
-                str = "(null)";
+	if (str == NULL)
+		str = "(null)";
 
-        while (*str != '\0')
-        {
-                _putchar(*str);
-                str++;
-                i++;
-        }
+	while (*str != '\0')
+	{
+		str++;
+		i++;
+	}
+
+	return (write(1, str, i));
 }
 
 /**
@@ -41,7 +44,9 @@ void print_string(va_list arg)
  *
  * Return: The number of characters printed.
  */
-void print_percent(va_list arg __attribute__((unused)))
+int print_percent(va_list arg __attribute__((unused)))
 {
-        _putchar('%');
+	char c = va_arg(arg, int);
+
+	return (write(1, &c, 1));
 }

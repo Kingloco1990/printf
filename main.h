@@ -17,7 +17,7 @@ typedef struct Printer
 } printer;
 
 int _printf(const char *format, ...);
-void parser(const char *format, printer p[], va_list arg);
+int parser(const char *format, printer p[], va_list arg);
 int print_char(va_list);
 int print_string(va_list);
 int print_percent(va_list);

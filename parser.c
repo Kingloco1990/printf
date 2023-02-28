@@ -9,39 +9,44 @@
  *
  * Return: Total number of characters printed.
  */
-void parser(const char *format, printer p[], va_list arg)
+int parser(const char *format, printer p[], va_list arg)
 {
-	int i, j;
+	int i, j, r_val, printed_chars = 0;
 
-	/* Iterates through the main str*/
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		/* Checks for format specifiers */
-		if (format[i] == '%')
+		if (format[i] == '%') /* Checks for format specifiers */
 		{
 			/* Iterates through struct to find the right func */
 			for (j = 0; p[j].symbol != NULL; j++)
 			{
 				if (format[i + 1] == p[j].symbol[0])
 				{
-					p[j].func(arg);
+					r_val = p[j].func(arg);
+					if (r_val == -1)
+						return (-1);
+					printed_chars += r_val;
 					break;
 				}
 			}
 			if (format[i + 1] != ' ' && p[j].symbol == NULL)
 			{
-				write(1, &format[i], 1);
-				write(1, &format[i + 1], 1);
+				if (format[i + 1] != '\0')
+				{
+					write(1, &format[i], 1);
+					write(1, &format[i + 1], 1);
+					printed_chars += 2;
+				}
+				else
+					return (-1);
 			}
-
-			i = i + 1;
-
+			i = i + 1; /*Updating i to skip format symbols*/
 		}
 		else
 		{
-			/* call the _putchar function to print the first byte */
-			/* of the format string */
 			write(1, &format[i], 1);
+			printed_chars++;
 		}
 	}
+	return (printed_chars);
 }

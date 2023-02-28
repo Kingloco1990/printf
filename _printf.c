@@ -9,6 +9,7 @@
  */
 int _printf(const char *format, ...)
 {
+	int printed_chars;
 	printer p[] = {
 		{"c", print_char},
 		{"s", print_string},
@@ -22,9 +23,9 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 
-	parser(format, p, arg);
+	printed_chars = parser(format, p, arg);
 
 	va_end(arg);
 
-	return (0);
+	return (printed_chars);
 }

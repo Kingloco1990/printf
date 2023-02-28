@@ -28,6 +28,9 @@ void parser(const char *format, printer p[], va_list arg)
 					break;
 				}
 			}
+
+			i = i + 1;
+
 		}
 		else
 		{

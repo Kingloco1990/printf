@@ -29,9 +29,8 @@ int print_string(va_list arg)
 	if (str == NULL)
 		str = "(null)";
 
-	while (*str != '\0')
+	while (str[i] != '\0')
 	{
-		str++;
 		i++;
 	}
 
@@ -46,7 +45,7 @@ int print_string(va_list arg)
  */
 int print_percent(va_list arg __attribute__((unused)))
 {
-	char c = va_arg(arg, int);
+	char c = '%';
 
 	return (write(1, &c, 1));
 }

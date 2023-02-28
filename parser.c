@@ -28,6 +28,11 @@ void parser(const char *format, printer p[], va_list arg)
 					break;
 				}
 			}
+			if (format[i + 1] != ' ' && p[j].symbol == NULL)
+			{
+				write(1, &format[i], 1);
+				write(1, &format[i + 1], 1);
+			}
 
 			i = i + 1;
 

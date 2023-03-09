@@ -21,6 +21,6 @@ int parser(const char *format, printer p[], va_list arg);
 int print_char(va_list);
 int print_string(va_list);
 int print_percent(va_list);
-int print_integer(val_list);
+int print_integer(va_list);
 
 #endif /* #ifndef _MAIN_H_ */

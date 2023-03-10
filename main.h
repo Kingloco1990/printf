@@ -22,5 +22,13 @@ int print_char(va_list);
 int print_string(va_list);
 int print_percent(va_list);
 int print_integer(va_list);
+int print_binary(va_list);
+
+
+/*Helper functions*/
+char *_memcpy(char *dest, char *src, unsigned int n);
+char *rev_string(char *);
+unsigned int base_len(unsigned int, int);
+void write_base(char *str);
 
 #endif /* #ifndef _MAIN_H_ */

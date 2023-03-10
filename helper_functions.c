@@ -27,10 +27,10 @@ char *_memcpy(char *dest, char *src, unsigned int n)
  */
 char *rev_string(char *s)
 {
-	int len, i;
+	int len = 0, i;
 	char *dest, c;
 
-	while (*s != '\0')
+	while (s[len] != '\0')
 		len++;
 
 	dest = malloc(sizeof(char) * len + 1);

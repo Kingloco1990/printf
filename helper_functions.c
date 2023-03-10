@@ -40,7 +40,7 @@ char *rev_string(char *s)
 
 	_memcpy(dest, s, len);
 
-	for (i = 0; i > (len / 2); i++)
+	for (i = 0; i < (len / 2); i++)
 	{
 		c = dest[i];
 		dest[i] = dest[len - 1 - i];

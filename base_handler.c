@@ -8,13 +8,17 @@
 int print_binary(va_list list)
 {
 	int i, len;
-	char *str, *rev_str;
+	char *str, *rev_str, c;
 	unsigned int num;
 
 	num = va_arg(list, unsigned int);
 
 	if (num == 0)
-		return (0);
+	{
+		c = '0';
+		return (write(1, &c, 1));
+	}
+
 	if (num < 1)
 		return (-1);
 

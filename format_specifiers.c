@@ -74,6 +74,9 @@ int print_Sstring(va_list arg)
 	if (str == NULL)
 		str = "(null)";
 
+	if (str == s)
+		return(write(1, s, 1));
+
 	if ((str[i] < 0 && str[i] < 32) || str[i] >= 127)
 	{	
 		while (str[i] != '\0')
@@ -84,9 +87,6 @@ int print_Sstring(va_list arg)
 	}
 	else
 	{
-		if (str == s)
-			return(write(1, s, 1));
-
 		while (str[j] != '\0')
 		{
 			j++;

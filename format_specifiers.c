@@ -78,8 +78,7 @@ int print_Sstring(va_list arg)
 	{
 		if ((str[i] < 0 && str[i] < 32) || str[i] >= 127)
 		{
-			write(1, s, 1);
-			i++;
+			write(1, s, 2);
 		}
 		else
 		{

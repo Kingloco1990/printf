@@ -69,15 +69,18 @@ int print_Sstring(va_list arg)
 	char *str, *s;
 
 	str = va_arg(arg, char *);
+	s = "\\x";
 
 	if (str == NULL)
 		str = "(null)";
+
+	if (str == "\\x")
+		return(write(1, s, 1));
 
 	if ((str[i] < 0 && str[i] < 32) || str[i] >= 127)
 	{	
 		while (str[i] != '\0')
 		{
-			s = "\\x";
 			write(1, s, 1);
 			i++;
 		}
@@ -97,24 +100,3 @@ int print_Sstring(va_list arg)
 
 	return (len);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

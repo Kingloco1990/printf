@@ -11,7 +11,7 @@ int print_binary(va_list arg)
 	char *str, *rev_str, c;
 	unsigned int num;
 
-	num = va_arg(list, unsigned int);
+	num = va_arg(arg, unsigned int);
 
 	if (num == 0)
 	{
@@ -150,7 +150,7 @@ int print_hex(va_list arg)
  *
  * Return: The number of characters printed.
  */
-int print_hex(va_list arg)
+int print_heX(va_list arg)
 {
 	int len, i, result;
 	char *str, *rev_str, ch;

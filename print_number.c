@@ -41,7 +41,7 @@ int print_integer(va_list arg)
  *
  * Return: The number of unsigned integers printed
  */
-int print_unsigined_integer(va_list arg)
+int print_unsigned_integer(va_list arg)
 {
 	int i = 1, k = 1, len = 0, result;
 	unsigned int num;

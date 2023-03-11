@@ -27,6 +27,7 @@ int print_unsigned_integer(va_list);
 int print_octal(va_list);
 int print_hex(va_list);
 int print_heX(va_list);
+int print_Sstring(va_list);
 
 
 /*Helper functions*/

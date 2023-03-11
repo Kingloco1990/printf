@@ -65,7 +65,7 @@ int print_percent(va_list arg __attribute__((unused)))
  */
 int print_Sstring(va_list arg)
 {
-	int i = 0;
+	int i = 0, j = 0, len = 0;
 	char *str, *s;
 
 	str = va_arg(arg, char *);
@@ -73,12 +73,48 @@ int print_Sstring(va_list arg)
 	if (str == NULL)
 		str = "(null)";
 
-	while (str[i] != '\0' && ((str[i] < 0 && str[i] < 32) || str[i] >= 127))
+	if ((str[i] < 0 && str[i] < 32) || str[i] >= 127)
+	{	
+		while (str[i] != '\0')
+		{
+			s = "\\x";
+			write(1, s, 1);
+			i++;
+		}
+	}
+	else
 	{
-		s = "\\x";
-		write(1, s, i);
-		i++;
+		while (str[j] != '\0')
+		{
+			j++;
+		}
+		
+		write(1, str, j);
 	}
 
-	return (i);
+	len += i;
+	len += j;
+
+	return (len);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

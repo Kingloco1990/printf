@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * print_integer - Prints a number send to this function
- * @arg: List of arguments
- * Return: The number of integers printed
+ * print_integer - Prints a number send to this function.
+ * @arg: List of arguments.
+ *
+ * Return: The number of integers printed.
  */
 int print_integer(va_list arg)
 {
@@ -37,11 +38,15 @@ int print_integer(va_list arg)
 /**
  * print_unsgined_integer - Prints an unsigned number
  * @num: Unsigned integer to be printed
+ *
  * Return: The number of unsigned integers printed
  */
-int print_unsgined_integer(unsigned int num)
+int print_unsigined_integer(va_list arg)
 {
 	int i = 1, k = 1, len = 0, result;
+	unsigned int num;
+
+	num = va_arg(arg, unsigned int);
 
 	while ((num / i) > 9)
 		i *= 10;

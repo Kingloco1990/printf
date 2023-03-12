@@ -28,6 +28,8 @@ int print_octal(va_list);
 int print_hex(va_list);
 int print_heX(va_list);
 int print_Sstring(va_list);
+int print_reversed(va_list);
+int rot13(va_list);
 
 
 /*Helper functions*/

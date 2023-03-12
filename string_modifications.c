@@ -19,6 +19,8 @@ int print_reversed(va_list arg)
 	p = malloc(sizeof(char) * len + 1);
 
 	p = rev_string(str);
+	if (p == NULL)
+		return (-1);
 
 	if (p == NULL)
 		return (-1);
@@ -56,6 +58,8 @@ int rot13(va_list arg)
 		len++;
 
 	s = malloc(sizeof(char) * len + 1);
+	if (s == NULL)
+		return (-1);
 
 	for (i = 0; str[i] != '\0'; i++)
 	{

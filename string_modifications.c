@@ -63,7 +63,7 @@ int rot13(va_list arg)
 		{
 			if (str[i] == alphabet[j])
 			{
-				s[i] = rot13[i];
+				s[i] = rot13[j];
 				break;
 			}
 			else
@@ -77,3 +77,27 @@ int rot13(va_list arg)
 
 	return (len);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

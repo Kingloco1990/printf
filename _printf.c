@@ -24,6 +24,7 @@ int _printf(const char *format, ...)
 		{"S", print_Sstring},
 		{"r", print_reversed},
 		{"R", rot13},
+		{"p", print_vpointer},
 		{NULL, NULL}
 	};
 	va_list arg;

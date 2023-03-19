@@ -30,7 +30,7 @@ int print_heX(va_list);
 int print_Sstring(va_list);
 int print_reversed(va_list);
 int rot13(va_list);
-
+int print_vpointer(va_list);
 
 /*Helper functions*/
 char *_memcpy(char *dest, char *src, unsigned int n);

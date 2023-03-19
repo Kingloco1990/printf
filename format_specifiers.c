@@ -104,9 +104,6 @@ int print_vpointer(va_list arg)
 
 	ptr = va_arg(arg, char *);
 
-	if (ptr == NULL)
-		ptr == NULL;
-
 	while (ptr[i] != '\0')
 	{
 		write(1, &ptr[i], 1);
